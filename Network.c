@@ -289,7 +289,6 @@ int NW_inint (char *ip_addr)
 {
 	  int	sock, j;
 	  int	stat;
-	  char	local_ip[100];
 	  struct sockaddr_in dest;
 	  int	in;
 
@@ -311,7 +310,7 @@ int NW_inint (char *ip_addr)
 	    memset(&dest, 0, sizeof(dest)); //clear socket address
 		dest.sin_family = AF_INET;
 		dest.sin_port = 0;
-		dest.sin_addr.s_addr = inet_addr(local_ip);
+		dest.sin_addr.s_addr = inet_addr(ip_addr);
 
 
 		if ((stat = bind(sock, (struct sockaddr *) &dest, sizeof(dest))) == SOCKET_ERROR) //(*@\serverBox{1)}@*)
