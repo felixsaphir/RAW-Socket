@@ -46,7 +46,7 @@ typedef struct _IP_HDR
 	unsigned long Dest_IP_add;
 } IP_HDR;
 
-static char *protocols[8] = {"ICMP", "IGMP", "TCP", "UDP", "ENCAP", "OSPF", "SCTP", "UNDEFINED"};
+static char const *protocols[8] = {"ICMP", "IGMP", "TCP", "UDP", "ENCAP", "OSPF", "SCTP", "UNDEFINED"};
 
 typedef struct _TCP_HDR
 {
@@ -151,7 +151,7 @@ static int print_Proto_HDR(unsigned char *buff, unsigned char protocol)
 }
 
 
-static char *proto (unsigned char protocol)
+static char const *proto (unsigned char protocol)
 {
 	int pid;
 

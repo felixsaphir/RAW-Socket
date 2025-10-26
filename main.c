@@ -50,7 +50,7 @@ static sem_t q_sem;
 
 static int wrt_trd_exit, rd_trd_exit;
 static int exit_program = 0;
-static char *trd_name[2] = {"Read trd", "Write trd"};
+static char const *trd_name[2] = {"Read trd", "Write trd"};
 
 /* create thread argument struct for thr_func() */
 typedef struct _thread_data_t {
@@ -271,7 +271,7 @@ int main (int argc, char *argv[])
 	 */
 	for (i = 0; i<MAX_QUEUE; i++)
 	{
-		if ((s_queue[i].buff = malloc(MAX_BUFF)) == NULL)
+		if ((s_queue[i].buff = (char*)malloc(MAX_BUFF)) == NULL)
 		{
 			printf("failed to allocate RAM for shared queue. Failed at: %d, error: %d\n", i, errno);
 			return -1;
